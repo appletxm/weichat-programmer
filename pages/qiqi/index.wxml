@@ -1,0 +1,24 @@
+<!--index.wxml-->
+<import src="tpl.wxml" />
+
+<view class="container">
+  <view class="userinfo">
+    123456789
+  </view>
+  
+  <template is="staffName" data="{{...staffA}}"></template>
+  <template is="staffName" data="{{...staffB}}"></template>
+  <template is="staffName" data="{{...staffC}}"></template>
+</view>
+
+<wxs src="test-module.wxs" module="tools" />
+<view> {{tools.msg}} </view>
+<view> {{tools.bar(tools.FOO)}} </view>
+
+<wxs module="foo">
+var some_msg = "hello world";
+module.exports = {
+    msg : some_msg,
+}
+</wxs>
+<view> {{foo.msg}} </view>
